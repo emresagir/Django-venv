@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h1> Yazıyı Sil </h1>
+<br/><br/>
+<h3>Sil : {{post.title}} </h3>
+
+
+<form method="POST">
+
+    {% csrf_token %}
+    <button>Yazıyı Sil!</button>
+
+
+
+</form>
+
+{% endblock %}
