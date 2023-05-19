@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h1> Kayıt ol... </h1>
+
+<form method="POST">
+
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>Kayıt ol</button>
+
+
+
+</form>
+
+{% endblock %}

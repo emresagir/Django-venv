@@ -1,6 +1,10 @@
 from django.http import HttpResponse
 from django.template import loader
+from django.views import generic
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
 
-def members(request):
-  template = loader.get_template('myfirst.html')
-  return HttpResponse(template.render())
+class UserRegisterView(generic.CreateView):
+    form_class = UserCreationForm
+    template_name = 'registration/register.html'
+    success_url = reverse_lazy('login')
