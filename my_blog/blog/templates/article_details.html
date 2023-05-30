@@ -9,7 +9,11 @@
 
 <h1>{{ post.title }}</h1>
 <small> By: {{ post.author.first_name }} {{ post.author.last_name }}
-    - <a href="{% url 'update-post' post.pk %}">Düzenle</a> - <a href="{% url 'delete-post' post.pk %}">Yazıyı Kaldır!</a>
+    {% if user.is_authenticated %}
+        - <a href="{% url 'update-post' post.pk %}">Düzenle</a> - 
+        <a href="{% url 'delete-post' post.pk %}">Yazıyı Kaldır!</a>
+    {% endif %}
+
 </small> <br/>
 <hr>
 <br/>

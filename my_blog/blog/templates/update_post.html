@@ -3,16 +3,25 @@
 
 {% block content %}
 
-<h1> Yazıyı Düzenle </h1>
 
-<form method="POST">
+{% if user.is_authenticated %}
+    <h1> Yazıyı Düzenle </h1>
 
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button>Güncelle</button>
+    <form method="POST">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Güncelle</button>
 
 
 
-</form>
+    </form>
+
+{% else %}
+
+You are not authenticated!!
+
+
+{% endif %}
 
 {% endblock %}
